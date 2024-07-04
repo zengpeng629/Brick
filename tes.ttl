@@ -1,0 +1,65 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix tes: <http://example.com/thermal_storage#> .
+
+tes:high_temperature_tank a brick:Water_Tank ;
+    brick:feed tes:low_heat_exchanger ;
+    brick:hasPoint tes:flow_sensor_htt_in,
+        tes:flow_sensor_htt_out,
+        tes:temperature_sensor_htt_in,
+        tes:temperature_sensor_htt_out ;
+    brick:haspart tes:high_heat_exchanger .
+
+tes:low_temperature_tank a brick:Water_Tank ;
+    brick:feed tes:high_heat_exchanger ;
+    brick:hasPoint tes:flow_sensor_ltt_in,
+        tes:flow_sensor_ltt_out,
+        tes:temperature_sensor_ltt_in,
+        tes:temperature_sensor_ltt_out ;
+    brick:haspart tes:low_heat_exchanger .
+
+tes:thermal_storage a brick:Energy_Storage .
+
+tes:flow_sensor_hhex_in a brick:Flow_Sensor .
+
+tes:flow_sensor_hhex_out a brick:Flow_Sensor .
+
+tes:flow_sensor_htt_in a brick:Flow_Sensor .
+
+tes:flow_sensor_htt_out a brick:Flow_Sensor .
+
+tes:flow_sensor_lhex_in a brick:Flow_Sensor .
+
+tes:flow_sensor_lhex_out a brick:Flow_Sensor .
+
+tes:flow_sensor_ltt_in a brick:Flow_Sensor .
+
+tes:flow_sensor_ltt_out a brick:Flow_Sensor .
+
+tes:temperature_sensor_hhex_in a brick:Temperature_sensors .
+
+tes:temperature_sensor_hhex_out a brick:Temperature_sensors .
+
+tes:temperature_sensor_htt_in a brick:Temperature_sensors .
+
+tes:temperature_sensor_htt_out a brick:Temperature_sensors .
+
+tes:temperature_sensor_lhex_in a brick:Temperature_sensors .
+
+tes:temperature_sensor_lhex_out a brick:Temperature_sensors .
+
+tes:temperature_sensor_ltt_in a brick:Temperature_sensors .
+
+tes:temperature_sensor_ltt_out a brick:Temperature_sensors .
+
+tes:high_heat_exchanger a brick:Heat_Exchanger ;
+    brick:hasPoint tes:flow_sensor_hhex_in,
+        tes:flow_sensor_hhex_out,
+        tes:temperature_sensor_hhex_in,
+        tes:temperature_sensor_hhex_out .
+
+tes:low_heat_exchanger a brick:Heat_Exchanger ;
+    brick:hasPoint tes:flow_sensor_lhex_in,
+        tes:flow_sensor_lhex_out,
+        tes:temperature_sensor_lhex_in,
+        tes:temperature_sensor_lhex_out .
+
