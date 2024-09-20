@@ -1,10 +1,6 @@
-@prefix apt: <urn:apartment#> .
+@prefix apt: <apartment#> .
 @prefix brick: <https://brickschema.org/schema/Brick#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-
-<urn:apartment> a owl:Ontology ;
-    owl:imports <https://brickschema.org/schema/1.4/Brick> .
 
 apt:bedroom a brick:Room ;
     brick:isPartOf apt:bedroom_lighting,
@@ -32,3 +28,4 @@ brick:Apartment rdfs:subClassOf brick:Space .
 apt:my_apartment a brick:Apartment .
 
 apt:thermostat_zone a brick:HVAC_Zone .
+

@@ -1,0 +1,52 @@
+@prefix Building: <http://example.com/Buildings#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+
+Building:Building_1 a brick:Building ;
+    brick:hasPart Building:floor_1,
+        Building:floor_2,
+        Building:floor_3 .
+
+Building:hot_water_distribution_system a brick:Water_Distribution ;
+    brick:feeds Building:pipe_1,
+        Building:pipe_2,
+        Building:pipe_3 .
+
+Building:floor_1 a brick:Floor ;
+    brick:hasPart Building:room_101 .
+
+Building:floor_2 a brick:Floor ;
+    brick:hasPart Building:room_201 .
+
+Building:floor_3 a brick:Floor ;
+    brick:hasPart Building:room_301 .
+
+Building:hot_water_meter_101 a brick:Hot_Water_Meter .
+
+Building:hot_water_meter_201 a brick:Hot_Water_Meter .
+
+Building:hot_water_meter_301 a brick:Hot_Water_Meter .
+
+Building:pipe_1 a brick:Pipe ;
+    brick:feeds Building:radiator_101 .
+
+Building:pipe_2 a brick:Pipe ;
+    brick:feeds Building:radiator_201 .
+
+Building:pipe_3 a brick:Pipe ;
+    brick:feeds Building:radiator_301 .
+
+Building:radiator_101 a brick:Radiator .
+
+Building:radiator_201 a brick:Radiator .
+
+Building:radiator_301 a brick:Radiator .
+
+Building:room_101 a brick:Room ;
+    brick:hasPoint Building:hot_water_meter_101 .
+
+Building:room_201 a brick:Room ;
+    brick:hasPoint Building:hot_water_meter_201 .
+
+Building:room_301 a brick:Room ;
+    brick:hasPoint Building:hot_water_meter_301 .
+
