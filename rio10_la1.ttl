@@ -1,0 +1,95 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix la1: <https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s223: <http://data.ashrae.org/standard223#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+la1:FO_supply_air_fan_efficiency a s223:Property ;
+    s223:cnx la1:TF_supply_air_fan ;
+    rdfs:comment "Supply air fan efficiency FO"^^xsd:string .
+
+la1:GT41_temperature_sensor a s223:TemperatureSensor ;
+    s223:cnx la1:blue_duct_inlet_point ;
+    rdfs:comment "GT41 temperature sensor, measures the temperature of the inlet air"^^xsd:string .
+
+<https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:2_airdamper_position> a s223:Property ;
+    s223:cnx <https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:2_airdamper> ;
+    rdfs:comment "Position of the damper, ST2:2"^^xsd:string .
+
+la1:blue_duct a s223:Duct ;
+    rdfs:comment "Inlet air blue duct in la1"^^xsd:string .
+
+la1:brown_duct a s223:Duct ;
+    s223:cnx la1:brown_duct_inlet_point,
+        la1:brown_duct_outlet_point ;
+    rdfs:comment "Outlet brown duct in la1"^^xsd:string .
+
+la1:supply_air_outdorr_space a brick:Outdoor_Area ;
+    s223:cnx la1:blue_duct_inlet_point ;
+    rdfs:comment "Outside space in for supply air"^^xsd:string .
+
+la1:ST1_outside_airdamper a brick:Outside_Damper ;
+    s223:cnx la1:ST1_outside_airdamper_outlet_point ;
+    rdfs:comment "Outside air damper, ST1"^^xsd:string .
+
+la1:ST1_outside_airdamper_outlet_point a s223:OutletConnectionPoint ;
+    s223:cnx la1:TF_supply_air_fan ;
+    rdfs:comment "Outlet point of the ST1 outside air damper"^^xsd:string .
+
+<https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:1_airdamper> a brick:Return_Damper ;
+    s223:cnx <https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:1_airdamper_position> ;
+    rdfs:comment "Return air damper, ST2:1"^^xsd:string .
+
+<https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:1_airdamper_position> a s223:Property ;
+    rdfs:comment "Position of the damper, ST2:1"^^xsd:string .
+
+<https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:2_airdamper> a brick:Return_Damper ;
+    s223:cnx la1:brown_duct_inlet_point ;
+    rdfs:comment "Return air damper, ST2:2"^^xsd:string .
+
+la1:TF_supply_air_fan_outlet_point a s223:OutletConnectionPoint ;
+    s223:cnx la1:blue_duct_junction ;
+    rdfs:comment "Outlet point of the supply air fan"^^xsd:string .
+
+la1:VVX a s223:HeatExchanger ;
+    rdfs:comment "This is the heat exchanger VVX"^^xsd:string .
+
+la1:blue_duct_junction a s223:Junction ;
+    s223:cnx la1:blue_duct_outlet_point_damper,
+        la1:blue_duct_outlet_point_vvx ;
+    rdfs:comment "Junction of the blue duct"^^xsd:string .
+
+la1:blue_duct_outlet_point_damper a s223:OutletConnectionPoint ;
+    s223:cnx <https://twinvista.se/Svenska-Bostäder/Rio10/Sandhamnsgatan10/LA1#ST2:1_airdamper> ;
+    rdfs:comment "Outlet point of the blue duct to the ST2:1"^^xsd:string .
+
+la1:blue_duct_outlet_point_vvx a s223:OutletConnectionPoint ;
+    s223:cnx la1:VVX ;
+    rdfs:comment "Outlet point of the blue duct to VVX"^^xsd:string .
+
+la1:brown_duct_outlet_point a s223:OutletConnectionPoint ;
+    s223:cnx la1:exhaust_air_outside_space ;
+    rdfs:comment "Outlet point of brown duct"^^xsd:string .
+
+la1:exhaust_air_outside_space a brick:Outdoor_Area ;
+    rdfs:comment "Outside space in for exhaust air"^^xsd:string .
+
+la1:inlet_air_filter a brick:IntakeAirFilter ;
+    s223:cnx la1:inlet_air_filter_outlet_point ;
+    rdfs:comment "Filter of inlet air"^^xsd:string .
+
+la1:inlet_air_filter_outlet_point a s223:OutletConnectionPoint ;
+    s223:cnx la1:ST1_outside_airdamper ;
+    rdfs:comment "Outlet point of the inlet air filter"^^xsd:string .
+
+la1:TF_supply_air_fan a brick:Supply_Fan ;
+    s223:cnx la1:TF_supply_air_fan_outlet_point ;
+    rdfs:comment "Supply air fan TF"^^xsd:string .
+
+la1:blue_duct_inlet_point a s223:InletConnectionPoint ;
+    s223:cnx la1:inlet_air_filter ;
+    rdfs:comment "Inlet point of the blue duct"^^xsd:string .
+
+la1:brown_duct_inlet_point a s223:InletConnectionPoint ;
+    rdfs:comment "Inlet point of brown duct"^^xsd:string .
+
